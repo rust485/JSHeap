@@ -16,9 +16,9 @@ class Heap
     let right = this.rightChild(parent);
 
     let smallest = parent;
-    if (left && comparator(this.heap[left], this.heap[parent]) < 0)
+    if (left && this.comparator(this.heap[left], this.heap[parent]) < 0)
       smallest = left;
-    if (right && comparator(this.heap[right], this.heap[smallest]) < 0)
+    if (right && this.comparator(this.heap[right], this.heap[smallest]) < 0)
       smallest = right;
     if (smallest != parent)
     {
@@ -32,9 +32,9 @@ class Heap
     let left = this.leftChild(i);
     let right = this.rightChild(i);
     let smallest = i;
-    if (left && comparator(this.heap[left], this.heap[i]) < 0)
+    if (left && this.comparator(this.heap[left], this.heap[i]) < 0)
       smallest = left;
-    if (right && comparator(this.heap[right], this.heap[smallest]) < 0)
+    if (right && this.comparator(this.heap[right], this.heap[smallest]) < 0)
       smallest = right;
     if (smallest != i)
     {
@@ -48,6 +48,19 @@ class Heap
     let tmp = this.heap[i];
     this.heap[i] = this.heap[j];
     this.heap[j] = tmp;
+  }
+
+  promote(node)
+  {
+    let pos = undefined;
+    for (let i = 0; i < this.heap.length; i++)
+      if (node === this.heap[i])
+        pos = i;
+
+    if (pos === undefined)
+      return false;
+
+    this.percUp(pos);
   }
 
   push(item)

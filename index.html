@@ -6,10 +6,11 @@
 <script>
   function comparator(i, j) { return i - j; }
   var heap = new Heap(comparator);
-  for (let i = 0; i < 100; i++)
-  {
-    heap.push(Math.random() * 1000);
-  }
+
+  // for (let i = 0; i < 100; i++)
+  // {
+  //   heap.push(Math.random() * 1000);
+  // }
 
   var last = -1;
   while (heap.heap.length > 0)
@@ -21,6 +22,31 @@
     }
     console.log(heap.peek());
     last = heap.pop();
+  }
+
+  console.log('');
+  function comparator2(i, j) { return i.x - j.x; }
+  var heap2 = new Heap(comparator2);
+  function obj(x) { return { x: x} }
+  var o = obj(5);
+  heap2.push(o);
+  heap2.push(obj(1));
+  heap2.push(obj(7));
+  heap2.push(obj(3));
+  console.log(heap2.heap);
+  o.x = 2;
+  heap2.promote(o);
+
+  var last = -1;
+  while (heap2.heap.length > 0)
+  {
+    if (last > heap2.peek())
+    {
+      console.log('error');
+      break;
+    }
+    console.log(heap2.peek());
+    last = heap2.pop();
   }
 </script>
 </body>
