@@ -1,0 +1,25 @@
+<head>
+  <script src='./Heap.js'></script>
+</head>
+<body>
+  check console
+<script>
+  var heap = new Heap();
+  for (let i = 0; i < 100; i++)
+  {
+    heap.push({}, Math.random() * 1000);
+  }
+
+  var last = -1;
+  while (heap.heap.length > 0)
+  {
+    if (last > heap.peek())
+    {
+      console.log('error');
+      break;
+    }
+    console.log(heap.peek());
+    last = heap.pop();
+  }
+</script>
+</body>
