@@ -4,10 +4,11 @@
 <body>
   check console
 <script>
-  var heap = new Heap();
+  function comparator(i, j) { return i - j; }
+  var heap = new Heap(comparator);
   for (let i = 0; i < 100; i++)
   {
-    heap.push({}, Math.random() * 1000);
+    heap.push(Math.random() * 1000);
   }
 
   var last = -1;

@@ -50,9 +50,9 @@ class Heap
     this.heap[j] = tmp;
   }
 
-  push(item, value)
+  push(item)
   {
-    this.heap.push(new Node(item, value));
+    this.heap.push(item);
     if (this.heap.length > 1) this.percUp(this.heap.length - 1);
   }
 
@@ -96,10 +96,5 @@ class Heap
   {
     if (i == 0) return undefined;
     return Math.floor((i - 1) / 2)
-  }
-
-  printValues()
-  {
-    this.heap.forEach((n) => console.log(n.value));
   }
 }
