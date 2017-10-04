@@ -6,6 +6,11 @@ class Heap
     this.comparator = comparator;
   }
 
+  size()
+  {
+    return this.heap.length;
+  }
+
   percUp(i)
   {
     let parent = this.parent(i);
@@ -63,7 +68,7 @@ class Heap
     this.percUp(pos);
   }
 
-  push(item)
+  insert(item)
   {
     this.heap.push(item);
     if (this.heap.length > 1) this.percUp(this.heap.length - 1);

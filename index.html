@@ -9,7 +9,7 @@
 
   // for (let i = 0; i < 100; i++)
   // {
-  //   heap.push(Math.random() * 1000);
+  //   heap.insert(Math.random() * 1000);
   // }
 
   var last = -1;
@@ -29,10 +29,10 @@
   var heap2 = new Heap(comparator2);
   function obj(x) { return { x: x} }
   var o = obj(5);
-  heap2.push(o);
-  heap2.push(obj(1));
-  heap2.push(obj(7));
-  heap2.push(obj(3));
+  heap2.insert(o);
+  heap2.insert(obj(1));
+  heap2.insert(obj(7));
+  heap2.insert(obj(3));
   console.log(heap2.heap);
   o.x = 2;
   heap2.promote(o);
